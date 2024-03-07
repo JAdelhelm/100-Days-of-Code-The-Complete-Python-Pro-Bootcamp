@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+    <!-- Adding Bootstrap-Flask styling here -->
+	{% block styles %}
+    {{ bootstrap.load_css() }} 
+	{% endblock %}
+</head>
+<body>
+	{% block content %} {% endblock %}
+	{{ bootstrap.load_js() }}
+</body>
+</html>
