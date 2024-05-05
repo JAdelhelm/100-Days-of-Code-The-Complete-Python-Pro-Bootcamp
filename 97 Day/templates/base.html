@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    {% block styles %}
+    <!-- Load Bootstrap-Flask CSS here -->
+    {{ bootstrap.load_css() }}
+    <!-- Link to the styles.css here to apply styling to all the child templates.-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,700"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+      integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+    {% endblock %}
+
+    <title>{% block title %}{% endblock %}</title>
+  </head>
+  <body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="{{url_for('home')}}"><h1>Rick and Morty - Shop</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="{{url_for('cart')}}"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAOJJREFUSEvNlMsNwjAQRF86gU6gE7hCEUARcAUqgU6gE/AgW8rX3jgYsadIdubt7McVhaMqrM9PAS/v5glc3ff+G+7qDgIg6C6B+1RIX4lWwNmLCzIp+gAz4OFVJ7sYarIcyEluqI9z/TwEqLvIgSQBEr25Pixy1F3ihzCFsT0Izc5hqDxyEV203DJdgHXIKrXJWrbdSAsSF+QTKUCOi4ZmCjC22Y3yWBzojiZJE2WJzmJaHEjY0gu9W52nxQqwZN97xwo4AhvgBGxbSrGz5BQFrfpT3k4qdmYGFHdQvAf/C3gDp+smGX2YUKEAAAAASUVORK5CYII="/> {{nr_items}}</a>
+            </li>
+            {% if current_user.is_authenticated %}
+              <li class="nav-item mx-5 px-5">
+                <a class="nav-link" href="{{url_for('logout')}}"><b>Logout</b></a>
+              </li>
+            {% else %}
+            <li class="nav-item mx-5 px-5">
+              <a class="nav-link" href="{{url_for('login')}}"><b>Login</b></a>
+            </li>
+            {% endif %}
+    
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% block content %}{% endblock %}
+  </body>
+</html>

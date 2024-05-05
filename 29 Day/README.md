@@ -1,0 +1,2 @@
+- Passwort, welches den Kriterien entspricht generieren lassen oder selbst eintragen
+- Wird anschließend in ein Textfile geschrieben mit folgender Syntax: Website | E-Mail | Passwort

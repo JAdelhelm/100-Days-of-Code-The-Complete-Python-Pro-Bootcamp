@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+<title>{% block title %}Overview - API{% endblock %}</title>
+
+{% block content %}
+    <div class="container py-5">
+        <h2>Your added items:</h2>
+    </div>
+
+
+    <div class="container">
+        <div class="row"> 
+        {% for character in list_of_chars %}
+          <!-- <p>{{character}}</p> -->
+          <div class="card mx-1 mb-2" style="width: 18rem;">
+            <img class="card-img-top pt-2 px-2" src="{{character['image']}}" alt="Card image cap">
+            <div class="card-body mx-2">
+              <h5 class="card-title">{{character["name"]}}</h5>
+                <ul >
+                  <li><b>Status:</b> {{character['status']}}</li>
+                  <li><b>Species:</b> {{character['species']}}</li>
+                  <li><b>Gender:</b> {{character['gender']}}</li>
+                  <li><b>Origin:</b> {{character['origin']['name']}}</li>
+                </ul>
+    
+            </div>
+            <div class="container mb-2" style="justify-content: center; text-align: center;">
+              <a href="{{url_for('create_checkout_session', id=character['id'])}}">
+                <button type="button" class="btn btn-primary">Pay</button>
+              </a>
+            </div>
+
+          </div>
+
+    
+        {% endfor %}
+
+      </div>
+    </div>
+
+{% endblock %}

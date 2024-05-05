@@ -1,0 +1,33 @@
+body {
+    background-color: black;
+    font-size: medium;
+}
+
+#MainSentence{
+    font-family: 'Libre Baskerville', serif;
+    color: yellow;
+    text-transform: uppercase;
+    font-size: 4rem;
+}
+
+#TextSentence {
+    color: white;
+    font-size: 2rem;
+}
+
+#MotivationalPoster {
+    text-align: center;
+    width: 50%;
+    margin-left: 25%;
+}
+
+#BorderImg{
+    border: 5px solid white;
+    /* border-top-width: 20px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+    border-right-width: 5px solid ; */
+    width: 100%;
+}
+
+

@@ -1,0 +1,33 @@
+<!-- Forms Input -->
+<div class="col-md-3">
+<div class="container d-flex justify-content-end" id="Card with Tasks">
+    <div class="card">
+        <div class="card-body" >
+        <form method="POST" novalidate>
+            {{ form.csrf_token() }}
+
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.name)}}
+                </div>
+            </div>
+            <!--  -->
+            <div class="row">
+                <div class="col">
+
+
+                    {{render_field(form.description)}}
+                </div>
+            </div>
+
+            <div class="row py-1">
+                <!-- Submit Button -->
+                <div class="col">
+                    {{render_field(form.submit_task, class="btn btn-success float-end")}}
+                </div>
+
+            </div>
+        </form>
+</div>
+</div>
+

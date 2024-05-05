@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field %}
+<title>{% block title %}Add Cafe{% endblock %}</title>
+
+{% block content %}
+<div class="container d-flex justify-content-center mb-3">
+    <h1>Add a new Cafe ☕</h1>
+
+</div>
+
+
+{% if testing == True %}
+<div class="container d-flex justify-content-center" >
+    <div class="card">
+        <div class="card-body" >
+        <form method="POST" novalidate>
+            {{ form.csrf_token() }}
+
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.coffee_price, value="Test" )}}
+                </div>
+                <div class="col">
+                    {{render_field(form.location, value="TestLocation")}}
+                </div>
+            </div>
+            <!--  -->
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.map_url, value="TestURL")}}
+                </div>
+                <div class="col">
+                    {{render_field(form.img_url, value="https://lh3.googleusercontent.com/p/AF1QipOhkJk2MBtFW1RydPU0zf3bf8upGkTQWyhDpXzZ=s0")}}
+                </div>
+            </div>
+            <!--  -->
+            <div class="row">
+
+                <div class="col">
+                    {{render_field(form.seats, value="TestSeats")}}
+                </div>
+            </div>
+            <!--  -->
+            <div>
+                <div class="col">
+                    {{render_field(form.name, value= random_cafe_name )}}
+                </div>
+            </div>
+            <!--  -->
+            <div class = "row">
+                <div class="col">
+                    {{render_field(form.has_toilet)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.has_sockets)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.can_take_calls)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.has_wifi)}}
+                </div>
+            </div>
+
+            <div class="row py-4">
+                <!-- Back to Home -->
+                 <div class="col">
+                    <a href="{{url_for('home')}}">
+                        <button type="button" class="btn btn-primary">Back to home</button>
+                    </a>
+
+                </div>
+                <!-- Submit Button -->
+                <div class="col">
+                    {{render_field(form.submit_cafe, class="btn btn-success float-end")}}
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% else %}
+<div class="container d-flex justify-content-center" >
+    <div class="card">
+        <div class="card-body" >
+        <form method="POST" novalidate>
+            {{ form.csrf_token() }}
+
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.coffee_price)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.location)}}
+                </div>
+            </div>
+            <!--  -->
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.map_url)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.img_url)}}
+                </div>
+            </div>
+            <!--  -->
+            <div class="row">
+                <div class="col">
+                    {{render_field(form.location)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.seats)}}
+                </div>
+            </div>
+            <!--  -->
+            <div>
+                <div class="col">
+                    {{render_field(form.name)}}
+                </div>
+            </div>
+            <!--  -->
+            <div>
+                <div class="col">
+                    {{render_field(form.has_toilet)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.has_sockets)}}
+                </div>
+                <div class="col">
+                    {{render_field(form.can_take_calls)}}
+                </div>
+            </div>
+
+            <div class="row py-4">
+                <!-- Back to Home -->
+                 <div class="col">
+                    <a href="{{url_for('home')}}">
+                        <button type="button" class="btn btn-primary">Back to home</button>
+                    </a>
+
+                </div>
+                <!-- Submit Button -->
+                <div class="col">
+                    {{render_field(form.submit_cafe, class="btn btn-success float-end")}}
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+{% endif %}
+
+
+
+
+
+{% endblock %}

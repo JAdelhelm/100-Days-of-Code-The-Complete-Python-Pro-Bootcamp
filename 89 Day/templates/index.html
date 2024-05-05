@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+<title>{% block title %}Coffee and Wifi{% endblock %}</title>
+
+{% block content %}
+<div class="jumbotron text-center">
+<div class="container d-flex justify-content-center my-5 pb-3">
+    <h1 >Overview of your ToDo's 📌</h1>
+    <hr>
+</div>
+<div class="container d-flex justify-content-start mb-4">
+  <h2 style="text-decoration: underline;">List of ToDo's in progress</h2>
+</div>
+
+<div class="row mx-4">
+  <div class="col-md-9">
+
+  <div class="container  justify-content-start" id="ToDos">
+        <table class="table mb-4">
+            <thead>
+              <tr>
+                <th scope="col">No.</th>
+                <th scope="col">Todo item</th>
+                <th scope="col">Description</th>
+                <th scope="col">Finished</th>
+                <th scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for todo in todo_list.items %}
+              <tr>
+                <th scope="row">{{todo.id}}</th>
+                <td>{{todo.name}}</td>
+                <td>{{todo.description}}</td>
+                {% if todo.finished == True %}
+                <td>✔️</td>
+                {% else %}
+                <td>✖️</td>
+                {% endif %}
+                <td>
+                  <div class="container">
+                      <a href="{{url_for('delete_todo', id = todo.id)}}" style="display: inline-block;">
+                      <button type="button" class="btn btn-danger">Delete</button>
+                      </a>
+                      <a href="{{url_for('finished_todo', id = todo.id)}}" style="display: inline-block;">
+                      <button type="submit" class="btn btn-success ms-1">Finished</button>
+                      </a>
+                  </div>
+                </td>
+              </tr>
+              
+              {% endfor %}
+            </tbody>
+          </table>
+
+          <div>
+            <!-- Pagination bottom -->
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center">
+                  {% if todo_list.has_prev %}
+                  <li class="page-item">
+                      <a class="page-link" href="{{ url_for('home', page=todo_list.prev_num) }}" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                      </a>
+                  </li>
+                  {% endif %}
+                  {% for num in todo_list.iter_pages() %}
+                  <li class="page-item {% if num == todo_list.page %}active{% endif %}">
+                      <a class="page-link" href="{{ url_for('home', page=num) }}">{{ num }}</a>
+                  </li>
+                  {% endfor %}
+                  {% if todo_list.has_next %}
+                  <li class="page-item">
+                      <a class="page-link" href="{{ url_for('home', page=todo_list.next_num) }}" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                      </a>
+                  </li>
+                  {% endif %}
+              </ul>
+          </nav>
+        </div>
+            
+</div>
+</div>
+{% include 'add_task.html' %}
+
+
+
+{% endblock %}

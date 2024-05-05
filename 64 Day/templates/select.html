@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Movie{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="heading">Select Movie</h1>
+  <p>
+    {% for movie in response_movies %}
+      <a href="{{url_for('add_new_post', movie_title=movie['original_title'])}}"> 
+        {{movie["original_title"]}} -  {{movie["release_date"]}}</a><br>
+    {% endfor %}
+  </p>
+
+</div>
+{% endblock %}

@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% from "bootstrap5/form.html" import render_form %}
+{% block title %}
+My Website
+{% endblock %}
+
+{% block content %}
+
+
+<div class="area" >
+        <ul class="circles">
+            <section class="py-5 mt-5 text-center container ">
+                <div class="row py-lg-5">
+                  <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light mt-5">Welcome to my Portfolio Website</h1>
+                    <p class="lead text-body-secondary pt-4">As a Master of Applied Computer Science, I am a data enthusiast, passionately engaged with the future of data analysis and visualization, to promote insights and understanding through the design of intuitive representations of complex data sets. My commitment aims to reshape the use and understanding of data by exploring and implementing cutting-edge technologies in the fields of Big Data, software engineering, and machine learning.</p>
+            
+                  </div>
+                </div>
+              </section>
+
+              <!-- Squares popping up in shape of li's -->
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+
+</div>
+    <div class="container pt-5" style="margin-bottom: 200px;">
+      <h2 class="text-center py-3">GitHub Top {{links.__len__()}} most Stars ⭐</h2>
+      <h4 class="text-center">(Alternative: Input of your GitHub Projects)</h4>
+      <div class="row">
+      {% for link in links %}
+
+        <div class="card mb-3 mt-3 ms-3 me-3" style="width: 18rem;">
+
+          <div class="card-body">
+            <h5 class="card-title">GitHub Project {{ links.index(link)+1 }}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="{{link}}" class="btn btn-primary">Github Link {{ i }}</a>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+    </div>
+
+    <!--  -->
+    <div class="container pt-5 my-5">
+      <h2 class="text-center">Contact me</h2>
+      <form method="POST" action="/">
+        {{ form.csrf_token }}
+        {{ render_form(form=form) }}
+
+    </form>
+    </div>
+  
+
+
+
+  {{ bootstrap.load_js() }}
+  
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+<title>{% block title %}Image Upload{% endblock %}</title>
+
+{% block content %}
+{% if image_colors_available %}
+
+<div class="container my-5" id="ImagePalette" style="display: flex; flex-wrap: wrap;">
+  {% for color in colors %}
+      <div class="card mx-2 my-2" style="width: 15rem; height: 20rem;">
+          <div class="card-body" style="background-color: rgb{{color}}">
+
+          </div>
+      </div>
+  {% endfor %}
+</div>
+
+
+<div class="container" style="text-align: center;" id="ImageUpload">
+  <form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+  </form>
+</div>
+{% else %}
+<div class="container my-5" style="text-align: center;">
+  <h1>Upload your Image here</h1>
+</div>
+
+<div class="container" style="text-align: center;" id="ImageUpload">
+  <form method=post enctype=multipart/form-data>
+    <input type=file name=file>
+    <input type=submit value=Upload>
+  </form>
+</div>
+{% endif %}
+
+{% endblock %}

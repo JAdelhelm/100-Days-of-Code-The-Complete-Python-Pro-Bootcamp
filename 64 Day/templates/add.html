@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Movie{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="heading">Add a Movie</h1>
+</div>
+<div class="h-50 d-flex align-items-center justify-content-center">
+    <div>
+      <form method="POST", actions="{{url_for('add_post')}}">
+        {{form.hidden_tag() }}
+        <div class="container pb-4">
+            {{ form.title.label(class="form-label title middle") }} 
+            {{ form.title(class="form-control") }}
+        {% if form.title.errors %}
+        <div class="alert alert-danger">{{ form.title.errors[0] }}</div>
+        {% endif %}
+        </div>
+
+        <div class="container">
+        {{ form.add_movie(class="btn btn-primary") }}
+        {% if form.add_movie.errors %}
+        <div class="alert alert-danger">{{ form.add_movie.errors[0] }}</div>
+        {% endif %}
+        </div>
+
+
+      </form>
+    </div>
+  </div>
+{% endblock %}

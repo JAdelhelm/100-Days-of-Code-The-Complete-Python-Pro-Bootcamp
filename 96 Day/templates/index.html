@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% from 'bootstrap5/form.html' import render_field %}
+
+<title>{% block title %}Overview - API{% endblock %}</title>
+
+{% block content %}
+<div class="container my-5" style="text-align: center;">
+  <h1>Custom API-Website</h1>
+  <form method="POST">
+    <input type="submit" value="Get Rick and Morty Characters">
+  </form>
+  {% if show_characters == True %}
+
+  <div class="container">
+    <div class="row"> 
+    {% for character in list_of_chars %}
+      <!-- <p>{{character}}</p> -->
+      <div class="card mx-2 my-2" style="width: 18rem;">
+        <img class="card-img-top py-2 px-2" src="{{character['image']}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{character["name"]}}</h5>
+
+            <ul >
+              <li><b>Status:</b> {{character['status']}}</li>
+              <li><b>Species:</b> {{character['species']}}</li>
+              <li><b>Gender:</b> {{character['gender']}}</li>
+              <li><b>Origin:</b> {{character['origin']['name']}}</li>
+
+            </ul>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+  {% endif %}
+</div>
+
+
+{% endblock %}
