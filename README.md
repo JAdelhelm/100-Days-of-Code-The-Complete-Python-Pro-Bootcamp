@@ -80,7 +80,7 @@ Sharing my code solutions from the Udemy-Course of [100 Days of Code: The Comple
 - [Day 68:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/68%20Day) Authentication with Flask
 - [Day 69:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/69%20Day) Blog Capstone Project Part 4 - Adding Users
 - [Day 70:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/70%20Day) Git, GitHub and Version Control
-- [Day 71:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/71%20Day) Deploying Your Web APplication
+- [Day 71:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/71%20Day) Deploying Your Web Application
 - [Day 72:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/72%20Day) Data Exploration with Pandas: College Major v.s. Your Salary
 - [Day 73:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/73%20Day) Data Visualisation with Matplotlib: Programming Languages
 - [Day 74:](https://github.com/JAdelhelm/100-Days-of-Code-The-Complete-Python-Pro-Bootcamp/tree/main/74%20Day) Aggregate & Merge Data with Pandas: Analyse the LEGO Dataset
