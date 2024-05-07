@@ -3,7 +3,7 @@
 # Requests==2.31.0
 # selenium==4.15.1
 
-
+#%%
 from bs4 import BeautifulSoup
 import requests
 from selenium import webdriver

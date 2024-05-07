@@ -12,5 +12,6 @@ def hello_world():
 def angela_site():
     return render_template('angela.html')
 
+# http://127.0.0.1:5000/angela
 if __name__ == "__main__":
     app.run(debug=True)
